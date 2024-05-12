@@ -12,7 +12,7 @@ public class AuthController {
 
     @GetMapping("/login")
     public String login() {
-        return "login"; // Return the login page template
+        return "customLogin"; // Return the login page template
     }
 
     @GetMapping("/")

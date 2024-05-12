@@ -1,4 +1,6 @@
-package com.example.FirstProject;
+//package com.example.FirstProject;
+//
+//public class Entity {
+//}
 
-public class Entity {
-}
+
