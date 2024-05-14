@@ -3,11 +3,10 @@ package com.example.FirstProject.artgallery.models;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document("artworks") // Collection name in MongoDB
+@Document(collection= "artworks") // Collection name in MongoDB
 public class Artwork {
     @Id
     private String id;
-
     private String title;
     private String category;
     private String imageUrl; // Field to store the image URL

@@ -1,8 +1,6 @@
 package com.example.FirstProject.artgallery.controllers;
 
-//public class ArtworkController {
-//}
-
+        import com.example.FirstProject.artgallery.models.Artist;
         import com.example.FirstProject.artgallery.models.Artwork;
         import com.example.FirstProject.artgallery.repositories.ArtworkRepository;
         import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +9,9 @@ package com.example.FirstProject.artgallery.controllers;
         import org.springframework.web.bind.annotation.*;
         import org.springframework.web.multipart.MultipartFile;
 
-@Controller
+        import java.util.List;
+
+@RestController
 @RequestMapping("/artist")
 public class ArtworkController {
 
@@ -19,18 +19,13 @@ public class ArtworkController {
     private ArtworkRepository artworkRepository;
 
     @GetMapping("/upload")
-    public String uploadForm(Model model) {
-        model.addAttribute("artwork", new Artwork());
-        return "art_upload"; // Return the art upload template
+    public List<Artwork> getAll() {
+        return null;
     }
 
     @PostMapping("/upload")
-    public String uploadArtwork(@RequestParam("image") MultipartFile image,
-                                @ModelAttribute Artwork artwork) {
-        // Assume that the image upload logic is implemented (e.g., Cloudinary integration)
-        // Set the image URL after upload
-        artwork.setImageUrl("uploaded_image_url"); // Placeholder for the actual image URL
+    public boolean uploadArtwork(@RequestBody Artwork artwork) {
         artworkRepository.save(artwork);
-        return "redirect:/artist/dashboard"; // Redirect to the dashboard after upload
+        return true; // Redirect to the dashboard after upload
     }
 }
